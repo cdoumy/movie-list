@@ -1,0 +1,168 @@
+/**
+ * IMPORT
+ * GENERAL
+ */
+
+
+
+
+
+/* IMPORT
+---------------------------------------- */
+@use '../../assets/scss/variables' as *;
+@use '../../assets/scss/mixin' as *;
+
+
+
+
+
+/* GENERAL
+---------------------------------------- */
+.list-movies {
+    @include flex(flex-start, stretch, wrap, 4, rem(40px), rem(40px));
+    &:has(.item:hover) .item:not(:hover) {
+        opacity: .5;
+    }
+    .item {
+        position: relative;
+        @include flex();
+        flex-direction: column;
+        background-color: rgba($color1, .1);
+        transition: opacity .4s ease;
+    }
+    .buttons-wrapper {
+        position: absolute;
+        top: rem(5px);
+        right: rem(5px);
+        @include flex();
+        column-gap: rem(5px);
+    }
+    .btn-already-seen,
+    .btn-list-to-see,
+    .btn-favorite {
+        width: rem(25px);
+        z-index: 5;
+        aspect-ratio: 1;
+        @include flex(center, center);
+        background-color: $color1;
+        border: 0;
+        border-radius: 50%;
+        &:not(:active) {
+            transition: background-color .3s ease;
+            .icon {
+                transition: filter .3s ease;
+            }
+        }
+        @include hover {
+            background-color: $color3;
+            .icon {
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+    .btn-already-seen .icon {
+        position: relative;
+        width: rem(14px);
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: rem(7px);
+            border: rem(2px) solid $color2;
+            border-top: 0;
+            border-right: 0;
+            content: '';
+            transform-origin: 40% 40%;
+            translate: -50% -50%;
+            rotate: -45deg;
+        }
+        &.active::before {
+            border-color: $color-success;
+        }
+    }
+    .btn-list-to-see .icon {
+        position: relative;
+        width: rem(14px);
+        &::before,
+        &::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: rem(2px);
+            background-color: $color2;
+            content: '';
+            translate: -50% -50%;
+        }
+        &::after {
+            rotate: 90deg;
+            transition: opacity .3s ease;
+        }
+        &.active::after {
+            opacity: 0;
+        }
+    }
+    .btn-favorite {
+        padding-top: rem(2px);
+        .icon {
+            width: rem(19px);
+        }
+    }
+    .media {
+        aspect-ratio: 66/100;
+        object-fit: cover;
+    }
+    .desc {
+        width: 100%;
+        padding: rem(6px) rem(15px) rem(10px);
+        flex-grow: 1;
+        @include flex();
+        flex-direction: column;
+    }
+    .title {
+        flex-grow: 1;
+        font-size: rem(18px);
+        line-height: 1.25;
+        font-weight: 600;
+    }
+    .infos {
+        width: 100%;
+        margin-top: rem(6px);
+        @include flex(space-between, center);
+    }
+    .date,
+    .rating {
+        font-size: rem(14px);
+    }
+    .rating {
+        @include flex(flex-end, center);
+        column-gap: rem(3px);
+        .icon {
+            width: rem(12px);
+        }
+        .result {
+            margin-left: rem(2px);
+        }
+    }
+}
+
+
+
+
+
+/* MEDIA QUERIES
+---------------------------------------- */
+@media only screen and (max-width: 1450px) {
+    .list-movies .item {
+        flex-basis: calc(100% / 3 - #{rem(40px)});
+    }
+}
+
+
+
+@media only screen and (max-width: 1100px) {
+    .list-movies .item {
+        flex-basis: calc(100% / 2 - #{rem(40px)});
+    }
+}

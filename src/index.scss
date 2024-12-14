@@ -1,0 +1,88 @@
+/**
+ * GENERAL
+ * CONTAINER
+ * MAIN CONTENT
+ */
+
+
+
+
+
+/* IMPORT
+---------------------------------------- */
+@use './assets/scss/reset' as *;
+@use './assets/scss/variables' as *;
+@use './assets/scss/mixin' as *;
+
+
+
+
+
+/* GENERAL
+---------------------------------------- */
+html {
+    overflow-y: scroll;
+    font-family: $font1;
+    font-size: $size-default;
+    line-height: $line-height-default;
+}
+
+body {
+    background: $color2;
+    color: $color1;
+}
+
+
+/* Image */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Accessibility */
+.screen-reader-text {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+
+
+
+
+/* CONTAINERS
+---------------------------------------- */
+.container {
+    @include container();
+}
+
+
+
+
+/* MAIN CONTENT
+---------------------------------------- */
+.main {
+    padding-block: rem(40px);
+    .cols-wrapper {
+        @include flex(flex-start, stretch);
+        column-gap: rem(40px);
+    }
+    .aside {
+        min-width: rem(200px);
+        padding-top: rem(44px);
+        flex-basis: 15%;
+    }
+    .content-primary {
+        flex-basis: 85%;
+    }
+}
+
+.no-results {
+    width: 100%;
+    padding-block: rem(75px);
+    text-align: center;
+    font-weight: 600;
+}

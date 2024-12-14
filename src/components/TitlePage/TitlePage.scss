@@ -1,0 +1,26 @@
+/**
+ * IMPORT
+ * GENERAL
+ */
+
+
+
+
+
+/* IMPORT
+---------------------------------------- */
+@use '../../assets/scss/variables' as *;
+@use '../../assets/scss/mixin' as *;
+
+
+
+
+
+/* GENERAL
+---------------------------------------- */
+.title-page {
+    margin-bottom: rem(15px);
+    text-align: center;
+    font-size: rem(34px);
+    font-weight: 600;
+}

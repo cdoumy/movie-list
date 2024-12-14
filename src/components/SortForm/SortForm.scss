@@ -1,0 +1,30 @@
+/**
+ * IMPORT
+ * GENERAL
+ */
+
+
+
+
+
+/* IMPORT
+---------------------------------------- */
+@use '../../assets/scss/variables' as *;
+@use '../../assets/scss/mixin' as *;
+
+
+
+
+
+/* GENERAL
+---------------------------------------- */
+.sort-form {
+    margin-bottom: rem(20px);
+    text-align: right;
+    .field {
+        background-color: rgba($color1, .1);
+        border: 0;
+        text-align: left;
+        color: $color1;
+    }
+}

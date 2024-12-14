@@ -1,0 +1,45 @@
+/**
+ * GENERAL
+ */
+
+
+
+
+
+/* IMPORT
+---------------------------------------- */
+@use '../../assets/scss/variables' as *;
+@use '../../assets/scss/mixin' as *;
+
+
+
+
+
+/* GENERAL
+---------------------------------------- */
+.navigation {
+    position: sticky;
+    top: rem(40px);
+    .item {
+        margin-top: rem(6px);
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    .link {
+        display: block;
+        padding: rem(15px) rem(20px);
+        background-color: rgba($color1, .1);
+        font-weight: 600;
+        transition: background-color .3s ease;
+        @include hover {
+            background-color: rgba($color1, .15);
+        }
+        &.active {
+            background-color: $color3;
+            @include hover {
+                background-color: $color3;
+            }
+        }
+    }
+}
