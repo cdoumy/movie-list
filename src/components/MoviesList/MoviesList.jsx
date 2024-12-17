@@ -32,10 +32,10 @@ export default function MoviesList({ selectedIds = [] }) {
         setsortValue(value);
     }
 
-    function starsRating(rating) {
+    function starsRating(note, total = 5) {
         const stars = [];
-        for (let i = 0; i < 5; i++) {
-            if (i < Math.round(rating)) {
+        for (let i = 0; i < total; i++) {
+            if (i < Math.round(note)) {
                 stars.push(starFull);
             } else {
                 stars.push(starEmpty);
